@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  shopping_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /usr/app/node_modules
+      - ./:/usr/app
+    env_file:
+      - .env
+    depends_on:
+      - postgres_db
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+
+  postgres_db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_DB: "${DB_NAME}"
+    volumes:
+      - ./data:/var/lib/postgresql/data

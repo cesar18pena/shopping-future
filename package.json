@@ -10,10 +10,11 @@
     "build": "rimraf dist/ && tsc -p tsconfig.json"
   },
   "dependencies": {
-    "fastify": "^3.13.0"
+    "dotenv": "^8.2.0",
+    "fastify": "^3.14.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.37",
     "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
