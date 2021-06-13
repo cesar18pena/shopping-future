@@ -1,4 +1,4 @@
-FROM node:14.16.0-alpine AS deps
+FROM node:14.17.0-alpine AS deps
 
 ENV NODE_ENV development
 
@@ -7,7 +7,7 @@ COPY package.json package.json
 COPY yarn.lock yarn.lock*
 RUN yarn install
 
-FROM node:14.16.0-alpine AS build
+FROM node:14.17.0-alpine AS build
 
 WORKDIR /usr/app
 COPY . .
