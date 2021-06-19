@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 services:
   shopping_api:
@@ -6,14 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /usr/app/node_modules
-      - ./:/usr/app
+      - /node/app/node_modules
+      - ./:/node/app
     env_file:
       - .env
     depends_on:
       - shopping_db
     ports:
       - "3000:3000"
+      - "5555:5555"
     expose:
       - "3000"
 

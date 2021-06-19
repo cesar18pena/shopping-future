@@ -10,8 +10,10 @@
     "build": "rimraf dist/ && tsc -p tsconfig.json"
   },
   "dependencies": {
+    "@prisma/client": "^2.24.1",
     "dotenv": "^10.0.0",
-    "fastify": "^3.17.0"
+    "fastify": "^3.17.0",
+    "prisma": "^2.24.1"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",

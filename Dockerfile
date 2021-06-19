@@ -2,16 +2,17 @@ FROM node:14.17.0-alpine AS deps
 
 ENV NODE_ENV development
 
-WORKDIR /usr/app
+WORKDIR /node/
 COPY package.json package.json
 COPY yarn.lock yarn.lock*
+COPY prisma ./prisma/
 RUN yarn install
 
 FROM node:14.17.0-alpine AS build
 
-WORKDIR /usr/app
+WORKDIR /node/app
 COPY . .
-COPY --from=deps /usr/app/node_modules node_modules
+COPY --from=deps /node/node_modules node_modules
 COPY .env.example .env
 
 EXPOSE 3000
