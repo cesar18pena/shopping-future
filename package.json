@@ -7,6 +7,10 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon",
+    "compile-schemas": "json2ts -i contexts/orders/schemas/ -o types",
+    "db:create": "prisma db push",
+    "db:update": "prisma generate",
+    "db:view": "prisma studio",
     "build": "rimraf dist/ && tsc -p tsconfig.json"
   },
   "dependencies": {
